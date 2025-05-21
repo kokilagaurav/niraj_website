@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PhysioCare - Book a Physiotherapist</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+  <meta name="theme-color" content="#1976d2">
+</head>
+<body style="background: var(--bg); min-height: 100vh;">
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
+  <div class="loading-overlay">
+    <div class="loading-spinner"></div>
+  </div>
+  
+  <div class="toast-container"></div>
+  
+  <div id="pageContent" style
+  <header>
+    <div class="container">
+      <h1>PhysioCare</h1>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#therapists">Therapists</a></li>
+          <li><a href="#booking">Book Now</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Login</h2>
+      <form id="loginForm">
+        <div class="error-message" id="loginError"></div>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit" class="btn-primary">
+          <span class="button-text">Login</span>
+          <span class="loading-spinner" style="display: none;">Loading...</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Signup Modal -->
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Create Account</h2>
+      <form id="signupForm">
+        <div class="error-message" id="signupError"></div>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <input type="password" placeholder="Confirm Password" required>
+        <button type="submit" class="btn-primary">
+          <span class="button-text">Sign Up</span>
+          <span class="loading-spinner" style="display: none;">Loading...</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="hero" class="animated-hero">
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80"
+        alt="Physiotherapy session"
+        class="hero-img"
+        style="max-width:340px;width:100%;border-radius:18px;box-shadow:0 4px 24px rgba(59,182,176,0.10);margin-bottom:32px;">
+      <h2 class="fade-in">Personalized Physiotherapy for Your Recovery</h2>
+      <p class="fade-in-delay" style="font-size:1.25em;">Expert care, compassion, and support for your journey to better health.</p>
+      <div class="hero-buttons fade-in-delay">
+        <a href="#booking" class="btn-primary">Book Consultation</a>
+        <a href="#services" class="btn-secondary">Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container about-flex">
+      <div class="about-img-col">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"
+          alt="Therapist helping patient"
+          class="about-img"
+          style="width:100%;max-width:320px;border-radius:16px;box-shadow:0 2px 16px rgba(59,182,176,0.10);margin-bottom:18px;">
+        <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=600&q=80"
+          alt="Physiotherapy exercise"
+          class="about-img"
+          style="width:100%;max-width:320px;border-radius:16px;box-shadow:0 2px 16px rgba(59,182,176,0.10);">
+      </div>
+      <div class="about-text-col">
+        <h2>About PhysioCare</h2>
+        <p style="font-size:1.15em;max-width:700px;margin:auto;">
+          At PhysioCare, our mission is to empower you to live pain-free and move with confidence. We believe in holistic, evidence-based physiotherapy delivered with empathy and expertise. Whether you need help with injury recovery, chronic pain, or preventive care, our team is here to support your health goals every step of the way.
+        </p>
+        <div style="display:flex;justify-content:center;gap:40px;margin-top:32px;flex-wrap:wrap;">
+          <div style="min-width:180px;">
+            <h3 style="color:var(--primary);font-size:1.2em;">Our Mission</h3>
+            <p>To make high-quality physiotherapy accessible, personal, and effective for everyone.</p>
+          </div>
+          <div style="min-width:180px;">
+            <h3 style="color:var(--primary);font-size:1.2em;">Our Values</h3>
+            <ul style="list-style:none;padding:0;">
+              <li>✔️ Compassionate Care</li>
+              <li>✔️ Evidence-Based Practice</li>
+              <li>✔️ Patient Empowerment</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="service-cards">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
+            alt="Back & Neck Pain"
+            class="service-img"
+            style="width:100%;max-width:120px;border-radius:12px;margin-bottom:12px;">
+          <div class="service-icon" aria-hidden="true">🦴</div>
+          <h3>Back & Neck Pain</h3>
+          <p>Relief and rehabilitation for spinal pain and stiffness.</p>
+        </div>
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1504439468489-c8920d796a29?auto=format&fit=crop&w=400&q=80"
+            alt="Sports Injury"
+            class="service-img"
+            style="width:100%;max-width:120px;border-radius:12px;margin-bottom:12px;">
+          <div class="service-icon" aria-hidden="true">⚽</div>
+          <h3>Sports Injury</h3>
+          <p>Expert care for athletes and active individuals.</p>
+        </div>
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1512070679279-c5bfb7c4b8c5?auto=format&fit=crop&w=400&q=80"
+            alt="Manual Therapy"
+            class="service-img"
+            style="width:100%;max-width:120px;border-radius:12px;margin-bottom:12px;">
+          <div class="service-icon" aria-hidden="true">🤲</div>
+          <h3>Manual Therapy</h3>
+          <p>Hands-on techniques to restore movement and function.</p>
+        </div>
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80"
+            alt="Home Visits"
+            class="service-img"
+            style="width:100%;max-width:120px;border-radius:12px;margin-bottom:12px;">
+          <div class="service-icon" aria-hidden="true">🏠</div>
+          <h3>Home Visits</h3>
+          <p>Professional physiotherapy in the comfort of your home.</p>
+        </div>
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80"
+            alt="Post-Surgery Rehab"
+            class="service-img"
+            style="width:100%;max-width:120px;border-radius:12px;margin-bottom:12px;">
+          <div class="service-icon" aria-hidden="true">🔄</div>
+          <h3>Post-Surgery Rehab</h3>
+          <p>Guided recovery after orthopedic and other surgeries.</p>
+        </div>
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=400&q=80"
+            alt="Wellness & Prevention"
+            class="service-img"
+            style="width:100%;max-width:120px;border-radius:12px;margin-bottom:12px;">
+          <div class="service-icon" aria-hidden="true">🧘‍♂️</div>
+          <h3>Wellness & Prevention</h3>
+          <p>Programs to keep you strong, flexible, and injury-free.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <div class="container">
+      <h2>What Our Patients Say</h2>
+      <div class="reviews-container">
+        <div class="review-card">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya S." class="review-img" style="width:48px;height:48px;border-radius:50%;margin-bottom:8px;">
+          <p>"The team at PhysioCare helped me recover from a knee injury faster than I imagined. Their care and encouragement made all the difference!"</p>
+          <strong>- Priya S.</strong>
+        </div>
+        <div class="review-card">
+          <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Rahul M." class="review-img" style="width:48px;height:48px;border-radius:50%;margin-bottom:8px;">
+          <p>"Professional, friendly, and truly invested in my well-being. Highly recommend for anyone needing physiotherapy."</p>
+          <strong>- Rahul M.</strong>
+        </div>
+        <div class="review-card">
+          <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Sunita K." class="review-img" style="width:48px;height:48px;border-radius:50%;margin-bottom:8px;">
+          <p>"I loved the home visit option. It was convenient and the therapist was amazing!"</p>
+          <strong>- Sunita K.</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Therapists Section -->
+  <section id="therapists">
+    <div class="container">
+      <h2>Meet Our Physiotherapists</h2>
+      <div class="therapists-grid">
+        <div class="therapist-card">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Dr. Aditi Sharma" class="therapist-img">
+          <h3>Dr. Aditi Sharma</h3>
+          <p>Sports Rehab Specialist<br>10+ years experience</p>
+          <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80"
+            alt="Dr. Aditi at work"
+            class="therapist-action-img"
+            style="width:100%;max-width:180px;border-radius:12px;margin-top:10px;">
+        </div>
+        <div class="therapist-card">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. Rajeev Kumar" class="therapist-img">
+          <h3>Dr. Rajeev Kumar</h3>
+          <p>Manual Therapy Expert<br>8+ years experience</p>
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
+            alt="Dr. Rajeev at work"
+            class="therapist-action-img"
+            style="width:100%;max-width:180px;border-radius:12px;margin-top:10px;">
+        </div>
+        <div class="therapist-card">
+          <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Dr. Neha Verma" class="therapist-img">
+          <h3>Dr. Neha Verma</h3>
+          <p>Pediatric Physiotherapist<br>6+ years experience</p>
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+            alt="Dr. Neha at work"
+            class="therapist-action-img"
+            style="width:100%;max-width:180px;border-radius:12px;margin-top:10px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Section -->
+  <section id="booking">
+    <div class="container">
+      <h2>Book a Consultation</h2>
+      <form id="homeBookingForm">
+        <div class="error-message" id="bookingError"></div>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" required />
+        <label for="email">Email:</label>
+        <input type="email" id="email" required />
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" required pattern="[0-9]{10}" />
+        <label for="bookingDate">Preferred Date:</label>
+        <input type="date" id="bookingDate" required />
+        <label for="bookingTime">Preferred Time:</label>
+        <select id="bookingTime" required>
+          <option value="">Select Time</option>
+          <option value="09:00">09:00 AM</option>
+          <option value="10:00">10:00 AM</option>
+          <option value="11:00">11:00 AM</option>
+          <option value="14:00">02:00 PM</option>
+          <option value="15:00">03:00 PM</option>
+          <option value="16:00">04:00 PM</option>
+        </select>
+        <label for="service">Select Service:</label>
+        <select id="service" required>
+          <option value="">Select Service</option>
+          <option value="Back Pain Therapy">Back Pain Therapy</option>
+          <option value="Sports Injury">Sports Rehabilitation</option>
+          <option value="Post-Surgery">Post-Surgery Rehab</option>
+          <option value="Home Visit">Home Visit</option>
+        </select>
+        <button type="submit" class="btn-primary">
+          <span class="button-text">Book Now</span>
+          <span class="loading-spinner" style="display: none;"></span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:32px;justify-content:center;">
+        <div>
+          <p><strong>Email:</strong> support@physiocare.com</p>
+          <p><strong>Phone:</strong> +91 9876543210</p>
+          <p><strong>Address:</strong> 123 Main Street, New Delhi, India</p>
+        </div>
+        <div id="map-container" style="min-width:280px;flex:1;">
+          <iframe
+            title="PhysioCare Location"
+            width="100%"
+            height="200"
+            frameborder="0"
+            style="border:0;border-radius:12px;"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=77.2090%2C28.6139%2C77.2190%2C28.6239&amp;layer=mapnik"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+      <form style="margin-top:32px;max-width:500px;margin-left:auto;margin-right:auto;">
+        <label for="contactName">Your Name:</label>
+        <input type="text" id="contactName" required>
+        <label for="contactEmail">Your Email:</label>
+        <input type="email" id="contactEmail" required>
+        <label for="contactMsg">Message:</label>
+        <textarea id="contactMsg" rows="4" required></textarea>
+        <button type="submit" class="btn-primary">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;">
+      <div>
+        <p>&copy; 2025 PhysioCare. All rights reserved.</p>
+      </div>
+      <div>
+        <a href="#about" style="margin-right:18px;color:var(--primary-dark);text-decoration:none;">About</a>
+        <a href="#services" style="margin-right:18px;color:var(--primary-dark);text-decoration:none;">Services</a>
+        <a href="#contact" style="color:var(--primary-dark);text-decoration:none;">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+  <div class="loading-spinner" id="loader" style="display: none;" aria-hidden="true"></div>
+
+  <main id="main">
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+      <div class="loading-spinner"></div>
+    </div>
+
+    <script src="app.js"></script>
+  </main>
+</body>
+</html>
