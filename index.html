@@ -1,679 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PhysioCare - Book a Physiotherapist</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="https://js.stripe.com/v3/"></script>
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
-    <meta name="theme-color" content="#1976d2">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physiotherapy & Rehabilitation Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
-
-<body style="background: var(--bg); min-height: 100vh;">
-    <!-- Subtle healing pattern background for the whole page -->
-    <div
-        style="position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:0.05;background:url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;">
-    </div>
-
-    <div class="loading-overlay">
-        <div class="loading-spinner"></div>
-    </div>
-
-    <div class="toast-container"></div>
-
-    <div id="pageContent" style <header id="header">
+<body>
+    <div class="top-bar">
         <div class="container">
-            <h1>PhysioCare</h1>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#faq-and-therapist">Therapists</a></li>
-                    <li><a href="#booking">Book Now</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+            <div class="top-bar-content">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone"></i> Call Now : +91-8756700567</span>
+                    <span><i class="fas fa-envelope"></i> Email Us : hello@c7physio.in</span>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <nav class="nav-container">
+                <div class="logo">
+                    <img src="images\WhatsApp Image 2025-05-23 at 10.08.02_9654e74a.jpg" alt="C7 Physio">
+                </div>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About Us</a>
+                    <a href="#conditions">Conditions We Treat</a>
+                    <a href="#offers">Offers</a>
+                    <a href="#services">Services</a>
+                    <a href="#contact">CONTACT US</a>
+                </div>
             </nav>
         </div>
-        </header>
+    </header>
 
-        <section id="hero" class="animated-hero">
-            <div class="container">
-                <img src="https://images.unsplash.com/photo-1571019613914-85f342c6a11e?auto=format&fit=crop&w=800&q=80"
-                    alt="Professional physiotherapy treatment" class="hero-img fade-in"
-                    style="width:180px;height:180px;border-radius:50%;object-fit:cover;border:4px solid rgba(255, 255, 255, 0);box-shadow:0 8px 30px rgba(0,0,0,0.1);margin:0 auto 40px;display:block;">
-
-                <h2 class="fade-in-delay">Expert Physiotherapy for Pain-Free Living</h2>
-                <p class="fade-in-delay">Specialized treatment plans with proven recovery rates for sports injuries,
-                    chronic pain, and rehabilitation.</p>
-
-                <div class="stats-container fade-in-delay">
-                    <div class="stat-item">
-                        <div class="stat-number">95%</div>
-                        <div class="stat-label">Recovery Rate</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">10+</div>
-                        <div class="stat-label">Years Experience</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">1000+</div>
-                        <div class="stat-label">Happy Patients</div>
-                    </div>
-                </div>
-
-                <div class="hero-buttons fade-in-delay">
-                    <a href="#booking" class="btn-primary">Book Consultation</a>
-                    <a href="#services" class="btn-secondary">Our Services</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Add floating physiotherapy images in left spaces -->
-        <div style="position:fixed;left:20px;top:150px;z-index:1;display:none;opacity:0.8;" class="sidebar-image"
-            id="sideImage1">
-            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=200&q=80"
-                alt="Physiotherapy treatment"
-                style="border-radius:12px;box-shadow:0 8px 24px rgba(54,165,160,0.15);max-width:180px;border:3px solid white;">
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Sports Injury Treatment</h2>
+            <h1>Get Back in the Game <span class="highlight">Fastest</span> with our experts</h1>
+            <p>We offer comprehensive and advanced rehabilitation programs for sports injuries, helping athletes in Jaipur recover quickly and effectively. Home and clinic services available.</p>
+            <a href="#" class="cta-button">DISCOVER MORE</a>
         </div>
-
-        <div style="position:fixed;left:30px;top:400px;z-index:1;display:none;opacity:0.8;" class="sidebar-image"
-            id="sideImage2">
-            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=200&q=80"
-                alt="Manual therapy"
-                style="border-radius:12px;box-shadow:0 8px 24px rgba(54,165,160,0.15);max-width:160px;border:3px solid white;">
-        </div>
-
-        <div style="position:fixed;left:40px;top:650px;z-index:1;display:none;opacity:0.8;" class="sidebar-image"
-            id="sideImage3">
-            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=200&q=80"
-                alt="Physical rehabilitation"
-                style="border-radius:12px;box-shadow:0 8px 24px rgba(54,165,160,0.15);max-width:140px;border:3px solid white;">
-        </div>
-
-        <!-- Add more floating sidebar images -->
-        <div style="position:fixed;left:35px;top:900px;z-index:1;display:none;opacity:0.8;" class="sidebar-image"
-            id="sideImage4">
-            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=200&q=80"
-                alt="Physical therapy equipment"
-                style="border-radius:12px;box-shadow:0 8px 24px rgba(54,165,160,0.15);max-width:150px;border:3px solid white;">
-        </div>
-
-        <!-- About Section with left-aligned image -->
-        <section id="about">
-            <div class="container about-flex"
-                style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:40px;">
-                <div class="about-img-col" style="flex:1;min-width:300px;max-width:500px;order:1;">
-                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80"
-                        alt="Professional physiotherapist" class="about-img"
-                        style="width:100%;border-radius:16px;box-shadow:0 8px 25px rgba(54,165,160,0.2);margin-bottom:25px;border:4px solid white;">
-                </div>
-                <div class="about-text-col" style="flex:1;min-width:300px;order:2;padding:20px;">
-                    <h2>About PhysioCare</h2>
-                    <p style="font-size:1.15em;max-width:700px;margin:auto;">
-                        At PhysioCare, our mission is to empower you to live pain-free and move with confidence. We
-                        believe in holistic, evidence-based physiotherapy delivered with empathy and expertise. Whether
-                        you need help with injury recovery, chronic pain, or preventive care, our team is here to
-                        support your health goals every step of the way.
-                    </p>
-                    <div style="display:flex;justify-content:center;gap:40px;margin-top:32px;flex-wrap:wrap;">
-                        <div style="min-width:180px;">
-                            <h3 style="color:var(--primary);font-size:1.2em;">Our Mission</h3>
-                            <p>To make high-quality physiotherapy accessible, personal, and effective for everyone.</p>
-                        </div>
-                        <div style="min-width:180px;">
-                            <h3 style="color:var(--primary);font-size:1.2em;">Our Values</h3>
-                            <ul style="list-style:none;padding:0;">
-                                <li>✔️ Compassionate Care</li>
-                                <li>✔️ Evidence-Based Practice</li>
-                                <li>✔️ Patient Empowerment</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section with left-aligned image -->
-        <section id="services">
-            <div class="container">
-                <div style="display:flex;flex-wrap:wrap;align-items:center;gap:40px;margin-bottom:40px;">
-                    <div style="flex:1;min-width:280px;max-width:400px;">
-                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=500&q=80"
-                            alt="Professional physiotherapy session"
-                            style="width:100%;border-radius:50%;border:4px solid white;box-shadow:0 10px 30px rgba(54,165,160,0.2);">
-                    </div>
-                    <div style="flex:2;min-width:280px;">
-                        <h2>Our Services</h2>
-                        <p style="margin-bottom:30px;">We provide expert physiotherapy services tailored to your
-                            specific needs, using evidence-based techniques for optimal recovery.</p>
-                    </div>
-                </div>
-
-                <div class="services-grid"
-                    style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:40px;">
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
-                            alt="Back & Neck Pain">
-                        <h3>Back & Neck Pain</h3>
-                        <p>Relief and rehabilitation for spinal pain and stiffness.</p>
-                    </div>
-
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1504439468489-c8920d796a29?auto=format&fit=crop&w=400&q=80"
-                            alt="Sports Injury">
-                        <h3>Sports Injury</h3>
-                        <p>Expert care for athletes and active individuals.</p>
-                    </div>
-
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1512070679279-c5bfb7c4b8c5?auto=format&fit=crop&w=400&q=80"
-                            alt="Manual Therapy">
-                        <h3>Manual Therapy</h3>
-                        <p>Hands-on techniques to restore movement and function.</p>
-                    </div>
-
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80"
-                            alt="Home Visits">
-                        <h3>Home Visits</h3>
-                        <p>Professional physiotherapy in the comfort of your home.</p>
-                    </div>
-
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80"
-                            alt="Post-Surgery Rehab">
-                        <h3>Post-Surgery Rehab</h3>
-                        <p>Guided recovery after orthopedic and other surgeries.</p>
-                    </div>
-
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=400&q=80"
-                            alt="Wellness & Prevention">
-                        <h3>Wellness & Prevention</h3>
-                        <p>Programs to keep you strong, flexible, and injury-free.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section with horizontal layout -->
-        <section id="features">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Why Choose Us</h2>
-                    <p>Experience exceptional care with our comprehensive physiotherapy services tailored to your needs.
-                    </p>
-                </div>
-                <div class="features-grid"
-                    style="display:flex;flex-wrap:nowrap;overflow-x:auto;gap:30px;padding:20px 0;margin:0 -20px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;">
-                    <div class="feature-card" style="flex:0 0 400px;scroll-snap-align:start;padding:30px;">
-                        <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80"
-                            alt="Personalized Plans" class="feature-img">
-                        <h3>Personalized Plans</h3>
-                        <p>Every patient receives a tailored treatment plan for their unique needs.</p>
-                    </div>
-
-                    <div class="feature-card" style="flex:0 0 400px;scroll-snap-align:start;padding:30px;">
-                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
-                            alt="Certified Experts" class="feature-img">
-                        <h3>Certified Experts</h3>
-                        <p>Our therapists are highly qualified and experienced in various specialties.</p>
-                    </div>
-
-                    <div class="feature-card" style="flex:0 0 400px;scroll-snap-align:start;padding:30px;">
-                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80"
-                            alt="Modern Techniques" class="feature-img">
-                        <h3>Modern Techniques</h3>
-                        <p>We use the latest evidence-based methods for faster, safer recovery.</p>
-                    </div>
-                </div>
-
-                <!-- Scroll Indicators -->
-                <div class="scroll-indicators" style="display:flex;justify-content:center;gap:8px;margin-top:30px;">
-                    <button class="scroll-dot active"
-                        style="width:8px;height:8px;border-radius:50%;border:none;background:var(--primary);padding:0;cursor:pointer;opacity:0.5;"></button>
-                    <button class="scroll-dot"
-                        style="width:8px;height:8px;border-radius:50%;border:none;background:var(--primary);padding:0;cursor:pointer;opacity:0.5;"></button>
-                    <button class="scroll-dot"
-                        style="width:8px;height:8px;border-radius:50%;border:none;background:var(--primary);padding:0;cursor:pointer;opacity:0.5;"></button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section - Remove card styling -->
-        <section id="testimonials">
-            <div class="container">
-                <h2>What Our Patients Say</h2>
-                <div class="reviews-container">
-                    <div class="review-card">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya S.">
-                        <p>"The team at PhysioCare helped me recover from a knee injury faster than I imagined. Their
-                            care and encouragement made all the difference!"</p>
-                        <strong>- Priya S.</strong>
-                    </div>
-                    <div class="review-card">
-                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Rahul M.">
-                        <p>"Professional, friendly, and truly invested in my well-being. Highly recommend for anyone
-                            needing physiotherapy."</p>
-                        <strong>- Rahul M.</strong>
-                    </div>
-                    <div class="review-card">
-                        <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Sunita K.">
-                        <p>"I loved the home visit option. It was convenient and the therapist was amazing!"</p>
-                        <strong>- Sunita K.</strong>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section with Therapist Profile -->
-        <section id="faq-and-therapist">
-            <div class="container">
-                <div style="display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:start">
-                    <!-- Left Side: FAQ Section -->
-                    <div style="flex:1;min-width:300px;max-width:600px;">
-                        <h2>Frequently Asked Questions</h2>
-                        <div class="faq-search">
-                            <input type="text" placeholder="Search frequently asked questions..." id="faqSearch">
-                        </div>
-                        <div class="faq-list">
-                            <!-- FAQ Items -->
-                            <div class="faq-item">
-                                <button class="faq-question">
-                                    <span>What conditions do you treat?</span>
-                                    <span class="faq-toggle">+</span>
-                                </button>
-                                <div class="faq-answer">
-                                    We treat various conditions including sports injuries, chronic pain, post-surgery rehabilitation, and more.
-                                </div>
-                            </div>
-                            <div class="faq-item">
-                                <button class="faq-question">
-                                    <span>How long is each session?</span>
-                                    <span class="faq-toggle">+</span>
-                                </button>
-                                <div class="faq-answer">
-                                    Initial sessions are 60 minutes, follow-ups are typically 45 minutes.
-                                </div>
-                            </div>
-                            <div class="faq-item">
-                                <button class="faq-question">
-                                    <span>Do you offer home visits?</span>
-                                    <span class="faq-toggle">+</span>
-                                </button>
-                                <div class="faq-answer">
-                                    Yes, we provide home physiotherapy services within the city limits.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right Side: Therapist Profile -->
-                    <div style="flex:1;min-width:300px;max-width:400px;" class="therapist-profile-card">
-                        <div style="background:white;border-radius:20px;padding:30px;box-shadow:0 10px 30px rgba(54, 165, 160, 0.1);">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" 
-                                 alt="Dr. Aditi Sharma" 
-                                 style="width:200px;height:200px;object-fit:cover;margin:-80px auto 20px;display:block;border:4px solid white;box-shadow:0 8px 25px rgba(54,165,160,0.15);">
-                            
-                            <h3 style="text-align:center;font-size:1.6em;margin:15px 0;">Dr. Aditi Sharma</h3>
-                            <p style="text-align:center;color:#666;font-size:1.1em;margin-bottom:20px;">Sports Rehabilitation Specialist</p>
-                            
-                            <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:20px 0;">
-                                <span class="certification-badge">
-                                    <img src="https://img.icons8.com/color/48/000000/diploma.png" alt="Certification">MPT
-                                </span>
-                                <span class="certification-badge">
-                                    <img src="https://img.icons8.com/color/48/000000/verified-badge.png" alt="Verified">Certified
-                                </span>
-                                <span class="certification-badge">
-                                    <img src="https://img.icons8.com/color/48/000000/medal.png" alt="Experience">10+ Yrs
-                                </span>
-                            </div>
-
-                            <blockquote style="font-style:italic;color:#555;margin:25px 0;padding:20px;background:var(--primary-light);border-radius:12px;">
-                                "I believe in treating not just the symptoms but the whole person, helping you return to the activities you love, pain-free."
-                            </blockquote>
-
-                            <button class="btn-primary" style="width:100%;margin-top:20px;">Book Appointment with Dr. Aditi</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Journey Section with more integrated approach -->
-        <section id="recovery-journey">
-            <div class="container">
-                <div style="display:flex;flex-wrap:wrap;align-items:center;gap:40px;margin-bottom:40px;">
-
-                    <div style="flex:2;min-width:280px;">
-                        <h2>Your Path to Recovery</h2>
-                        <p style="margin-bottom:30px;">Our structured approach ensures you receive the best care at
-                            every stage of your healing journey.</p>
-                    </div>
-                </div>
-
-                <div class="journey-steps">
-                    <div class="journey-step">
-                        <div class="step-number">1</div>
-                        <h3>Assessment</h3>
-                        <p>Comprehensive analysis of your condition and medical history</p>
-                    </div>
-                    <div class="journey-step">
-                        <div class="step-number">2</div>
-                        <h3>Treatment Plan</h3>
-                        <p>Personalized therapy program targeted to your specific needs</p>
-                    </div>
-                    <div class="journey-step">
-                        <div class="step-number">3</div>
-                        <h3>Active Recovery</h3>
-                        <p>Guided therapy sessions with continuous progress monitoring</p>
-                    </div>
-                    <div class="journey-step">
-                        <div class="step-number">4</div>
-                        <h3>Pain-Free Living</h3>
-                        <p>Return to your daily activities with confidence and comfort</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Enhanced Testimonials Section -->
-        <section id="testimonials">
-            <div class="container">
-                <h2>What Our Patients Say</h2>
-                <div class="reviews-container">
-                    <div class="review-card">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya S.">
-                        <p>"The team at PhysioCare helped me recover from a knee injury faster than I imagined. Their
-                            care and encouragement made all the difference!"</p>
-                        <strong>- Priya S.</strong>
-                    </div>
-                    <div class="review-card">
-                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Rahul M.">
-                        <p>"Professional, friendly, and truly invested in my well-being. Highly recommend for anyone
-                            needing physiotherapy."</p>
-                        <strong>- Rahul M.</strong>
-                    </div>
-                    <div class="review-card">
-                        <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Sunita K.">
-                        <p>"I loved the home visit option. It was convenient and the therapist was amazing!"</p>
-                        <strong>- Sunita K.</strong>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        
-     
-
-                  
-            <script>
-                // FAQ Functionality
-                document.querySelectorAll('.faq-question').forEach(question => {
-                    question.addEventListener('click', () => {
-                        const faqItem = question.parentElement;
-                        const answer = question.nextElementSibling;
-                        const isOpen = answer.classList.contains('open');
-
-                        // Close all other answers
-                        document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
-                        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-
-                        // Toggle current answer
-                        if (!isOpen) {
-                            answer.classList.add('open');
-                            faqItem.classList.add('active');
-                        }
-                    });
-                });
-
-                // FAQ Search Functionality
-                document.getElementById('faqSearch').addEventListener('input', function (e) {
-                    const searchText = e.target.value.toLowerCase();
-
-                    document.querySelectorAll('.faq-item').forEach(item => {
-                        const question = item.querySelector('.faq-question span').textContent.toLowerCase();
-                        const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
-
-                        if (question.includes(searchText) || answer.includes(searchText)) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-                });
-            </script>
-        </section>
-        <!-- Contact Section with stretched form below address and map -->
-        <section id="contact">
-            <div class="container">
-                <h2>Contact Us</h2>
-                <p style="text-align:center;margin-bottom:30px;">We're here to help. Reach out to us for any questions
-                    or to book an appointment.</p>
-
-                <!-- Top row with address and map side by side -->
-                <div style="display:flex;flex-wrap:wrap;justify-content:center;margin-bottom:30px;gap:30px;">
-                    <!-- Address info -->
-                    <div style="flex:1;min-width:280px;max-width:500px;padding:20px;">
-                        <h3 style="margin-bottom:20px;">Our Location</h3>
-                        <div style="margin-bottom:20px;">
-                            <p><strong>Email:</strong> support@physiocare.com</p>
-                            <p><strong>Phone:</strong> +91 9876543210</p>
-                            <p><strong>Address:</strong> 123 Main Street, New Delhi, India</p>
-                        </div>
-
-                        <div style="margin-top:30px;display:flex;gap:15px;flex-wrap:wrap;">
-                            <div style="display:flex;align-items:center;gap:10px;">
-                                <div
-                                    style="width:40px;height:40px;border-radius:50%;background:var(--primary-light);display:flex;align-items:center;justify-content:center;">
-                                    <span style="color:var(--primary-dark);font-size:20px;">⏱️</span>
-                                </div>
-                                <div>
-                                    <p style="font-weight:600;margin-bottom:5px;">Working Hours</p>
-                                    <p>Monday-Friday: 9AM-7PM</p>
-                                    <p>Saturday: 9AM-5PM</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Map -->
-                    <div style="flex:1;min-width:280px;max-width:500px;">
-                        <iframe title="PhysioCare Location" width="100%" height="250" frameborder="0"
-                            style="border:0;border-radius:12px;box-shadow:0 5px 20px rgba(54,165,160,0.15);"
-                            src="https://www.openstreetmap.org/export/embed.html?bbox=77.2090%2C28.6139%2C77.2190%2C28.6239&amp;layer=mapnik"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-
-                <!-- Full-width contact form below -->
-                <div class="flat-form-container"
-                    style="margin-top:40px;max-width:800px;margin-left:auto;margin-right:auto;">
-                    <h3 style="text-align:center;margin-bottom:30px;">Send Us a Message</h3>
-
-                    <form onsubmit="sendEmail(event)" class="flat-form"
-                        style="background:transparent;box-shadow:none;padding:0;">
-                        <div style="display:flex;flex-wrap:wrap;gap:20px;margin-bottom:20px;">
-                            <div style="flex:1;min-width:250px;">
-                                <label for="contactName">Your Name</label>
-                                <input type="text" id="contactName" required
-                                    style="width:100%;background:transparent;border:none;border-bottom:2px solid var(--primary-light);border-radius:0;padding:10px 0;">
-                            </div>
-
-                            <div style="flex:1;min-width:250px;">
-                                <label for="contactEmail">Your Email</label>
-                                <input type="email" id="contactEmail" required
-                                    style="width:100%;background:transparent;border:none;border-bottom:2px solid var(--primary-light);border-radius:0;padding:10px 0;">
-                            </div>
-                        </div>
-
-                        <div style="margin-bottom:20px;">
-                            <label for="contactSubject">Subject</label>
-                            <input type="text" id="contactSubject" required
-                                style="width:100%;background:transparent;border:none;border-bottom:2px solid var(--primary-light);border-radius:0;padding:10px 0;">
-                        </div>
-                        <label for="contactMessage">Message</label>
-                        <textarea id="contactMsg" rows="4" required
-                            style="width:100%;background:transparent;border:none;border-bottom:2px solid var(--primary-light);border-radius:0;padding:10px 0;resize:vertical;min-height:100px;"></textarea>
-                </div>
-
-                <div style="text-align:center;">
-                    <button type="submit" class="btn-primary">Send Message</button>
-                </div>
-                </form>
-            </div>
-    </div>
-
-    <script>
-        function sendEmail(e) {
-            e.preventDefault();
-            const subject = document.getElementById('contactSubject').value;
-            const message = document.getElementById('contactMsg').value;
-            const name = document.getElementById('contactName').value;
-            const email = document.getElementById('contactEmail').value;
-
-            const mailtoLink = `mailto:gauravkokila0125@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('From: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
-            window.location.href = mailtoLink;
-        }
-    </script>
     </section>
 
-    <!-- Footer -->
-    <footer></footer>
-    <div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;">
-        <div>
-            <p>&copy; 2025 PhysioCare. All rights reserved.</p>
+    <section class="features">
+        <h2 style="text-align: center;">WELCOME TO <span class="highlight">C7PHYSIO</span> HEALTHCARE</h2>
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-procedures"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>NO SURGERY</h3>
+                        <p>Skip meds & surgery! Our expert therapists create personalized exercise programs to manage chronic pain and boost mobility.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>EXPERT PHYSIO</h3>
+                        <p>Our expert physiotherapists treat sports injuries & musculoskeletal problems. From elite athletes to everyday aches, we get you moving pain-free.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>HEALTH CARE</h3>
+                        <p>Knees, backs, shoulders, necks – our expert physios handle it all! Sports injuries too! Get pain-free movement, recover fast.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>PREMIUM SERVICES</h3>
+                        <p>Jaipur's top-rated physiotherapy! Over 135 5-star Google reviews prove it. We put patient satisfaction first.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <a href="#about" style="margin-right:18px;color:var(--primary-dark);text-decoration:none;">About</a>
-            <a href="#services" style="margin-right:18px;color:var(--primary-dark);text-decoration:none;">Services</a>
-            <a href="#contact" style="color:var(--primary-dark);text-decoration:none;">Contact</a>
+    </section>
+
+    <section class="treatments">
+        <div class="container">
+            <h2 class="section-title">Our Most Popular Treatments</h2>
+            <p class="section-subtitle">Fast, effective solutions for your pain and mobility needs</p>
+            
+            <div class="treatments-grid">
+                <div class="treatment-card">
+                    <img src="images/kinesiology.jpg" alt="Kinesiology Taping">
+                    <h3>Kinesiology Taping</h3>
+                    <p>Professional kinesiology taping for pain relief and support. Effective for sports injuries and chronic pain.</p>
+                    <p class="price">Starting at ₹500</p>
+                    <a href="#" class="treatment-btn">Learn More About Kinesiology Taping</a>
+                </div>
+
+                <div class="treatment-card">
+                    <img src="images/cupping.jpg" alt="Cupping Therapy">
+                    <h3>Cupping Therapy</h3>
+                    <p>Traditional and modern cupping techniques for muscle relaxation, improved circulation, and pain relief.</p>
+                    <p class="price">Starting at ₹750</p>
+                    <a href="#" class="treatment-btn">Explore Cupping Therapy</a>
+                </div>
+
+                <div class="treatment-card">
+                    <img src="images/home-visit.jpg" alt="Home Visit Physiotherapy">
+                    <h3>Home Visit Physiotherapy</h3>
+                    <p>Expert physiotherapy in the comfort of your home. Available throughout Jaipur.</p>
+                    <p class="price">Starting at ₹800</p>
+                    <a href="#" class="treatment-btn">Book a Home Visit</a>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>We are a leading physiotherapy clinic dedicated to providing comprehensive care and rehabilitation services. Our team of experienced professionals uses advanced techniques and modern equipment to ensure the best results for our patients.</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/clinic.jpg" alt="Our Clinic">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <img src="images/sports-rehab.jpg" alt="Sports Rehabilitation">
+                    <h3>Sports Rehabilitation</h3>
+                    <p>Specialized treatment for sports-related injuries and performance enhancement</p>
+                </div>
+                <div class="service-card">
+                    <img src="images/orthopedic.jpg" alt="Orthopedic Rehabilitation">
+                    <h3>Orthopedic Rehabilitation</h3>
+                    <p>Comprehensive care for musculoskeletal conditions</p>
+                </div>
+                <div class="service-card">
+                    <img src="images/neuro.jpg" alt="Neurological Rehabilitation">
+                    <h3>Neurological Rehabilitation</h3>
+                    <p>Expert care for neurological conditions and recovery</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-banner">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Need Urgent Pain Relief?</h2>
+                <p>Suffering from sudden back or neck pain? Don't wait in agony. Our emergency physiotherapy service provides fast relief when you need it most. Just one call away!</p>
+                <a href="tel:+918756700567" class="cta-button">Call Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="specialities" id="specialities">
+        <div class="container">
+            <h2>Our Specialities</h2>
+            <div class="speciality-grid">
+                <div class="speciality-item">
+                    <img src="images/stroke-rehab.jpg" alt="Stroke Rehabilitation">
+                    <i class="fas fa-brain"></i>
+                    <h3>Stroke Rehabilitation</h3>
+                </div>
+                <div class="speciality-item">
+                    <img src="images/joint-replacement.jpg" alt="Joint Replacement">
+                    <i class="fas fa-bone"></i>
+                    <h3>Joint Replacement</h3>
+                </div>
+                <div class="speciality-item">
+                    <img src="images/sports-injury.jpg" alt="Sports Injuries">
+                    <i class="fas fa-running"></i>
+                    <h3>Sports Injuries</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2>Patient Testimonials</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <p>"Excellent treatment and care. Highly recommended!"</p>
+                    <h4>- John Doe</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Professional staff and great results."</p>
+                    <h4>- Jane Smith</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p><i class="fas fa-phone"></i> +1234567890</p>
+                    <p><i class="fas fa-envelope"></i> info@physiocenter.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Therapy Street, Medical District</p>
+                </div>
+                <div class="contact-form">
+                    <form id="appointment-form">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="tel" placeholder="Phone Number" required>
+                        <textarea placeholder="Message" required></textarea>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="info-bar">
+            <div class="container">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Our Quality</h3>
+                            <p>We have best physiotherapist in jaipur</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>DoorStep Service</h3>
+                            <p>Top & Best Physiotherapist at Home</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon">
+                            <i class="far fa-clock"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Our Availablity</h3>
+                            <p>Monday - Saturday: 8:30 AM to 8:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>About Us</h3>
+                        <p>C7Physio is one of the best physiotherapy Clinic in Jaipur known for friendly environment and proper treatment. Best Clinic for Musculoskeletal pain, Sports Injury and rehabilitation.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Useful Links</h3>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Gallery</a></li>
+                            <li><a href="#">Blogs</a></li>
+                            <li><a href="#">Our Speciality</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3>Services Links</h3>
+                        <ul>
+                            <li><a href="#">Physiotherapy</a></li>
+                            <li><a href="#">Patient Education</a></li>
+                            <li><a href="#">Manual Therapy</a></li>
+                            <li><a href="#">Cupping Therapy</a></li>
+                            <li><a href="#">Neurological Rehabilitation</a></li>
+                            <li><a href="#">Posture Correction</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3>Quick Contact</h3>
+                        <p><i class="fas fa-phone"></i> +91-8756700567</p>
+                        <p><i class="fas fa-envelope"></i> hello@c7physio.in</p>
+                        <p><i class="fas fa-map-marker-alt"></i> O-5 Hospital Road C-Scheme Jaipur.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 C7Physio Healthcare. All Rights Reserved</p>
+            </div>
+        </div>
     </footer>
 
-    <div id="toast" class="toast" role="alert" aria-live="polite"></div>
-    <div class="loading-spinner" id="loader" style="display: none;" aria-hidden="true"></div>
-
-    <main id="main">
-        <!-- Loading Overlay -->
-        <div id="loadingOverlay" class="loading-overlay">
-            <div class="loading-spinner"></div>
-        </div>
-
-        <script src="app.js"></script>
-    </main>
-
-    <script>
-        // Animate hero text
-        document.addEventListener('DOMContentLoaded', function () {
-            const heroTitle = document.querySelector('.dynamic-hero-title');
-            const heroDesc = document.querySelector('.dynamic-hero-desc');
-            if (heroTitle) heroTitle.classList.add('fade-in');
-            if (heroDesc) heroDesc.classList.add('fade-in-delay');
-        });
-
-        // FAQ toggle
-        document.querySelectorAll('.faq-question').forEach(btn => {
-            btn.addEventListener('click', function () {
-                this.nextElementSibling.classList.toggle('open');
-                this.querySelector('.faq-toggle').textContent =
-                    this.nextElementSibling.classList.contains('open') ? '-' : '+';
-            });
-        });
-
-        // Quick booking form handler (optional: show toast or confirmation)
-        document.getElementById('quickBookingForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            // You can add AJAX here or show a toast
-            alert('Thank you for booking! We will contact you soon.');
-            this.reset();
-        });
-
-        // Show sidebar images on larger screens
-        document.addEventListener('DOMContentLoaded', function () {
-            // Check if screen is wide enough for sidebar images
-            function checkSidebarImages() {
-                const sidebarImages = document.querySelectorAll('.sidebar-image');
-                if (window.innerWidth > 1400) {
-                    sidebarImages.forEach(img => img.style.display = 'block');
-                } else {
-                    sidebarImages.forEach(img => img.style.display = 'none');
-                }
-            }
-
-            // Initial check and listen for window resize
-            checkSidebarImages();
-            window.addEventListener('resize', checkSidebarImages);
-
-            // Animate sidebar images on scroll
-            window.addEventListener('scroll', function () {
-                const scrollPosition = window.scrollY;
-
-                // Simple parallax effect for sidebar images
-                if (window.innerWidth > 1400) {
-                    document.getElementById('sideImage1').style.transform = `translateY(${scrollPosition * 0.1}px)`;
-                    document.getElementById('sideImage2').style.transform = `translateY(${scrollPosition * -0.05}px)`;
-                    document.getElementById('sideImage3').style.transform = `translateY(${scrollPosition * 0.07}px)`;
-                    document.getElementById('sideImage4').style.transform = `translateY(${scrollPosition * -0.03}px)`;
-                }
-            });
-        });
-
-        // Add image hover animation
-        document.addEventListener('DOMContentLoaded', function () {
-            const images = document.querySelectorAll('img:not(.sidebar-image img):not(.main-img)');
-
-            images.forEach(img => {
-                img.addEventListener('mouseenter', function () {
-                    this.style.transform = 'scale(1.03)';
-                    this.style.boxShadow = '0 12px 30px rgba(54, 165, 160, 0.25)';
-                    this.style.transition = 'all 0.3s ease';
-                });
-
-                img.addEventListener('mouseleave', function () {
-                    this.style.transform = 'scale(1)';
-                    this.style.boxShadow = '';
-                });
-            });
-        });
-
-        // Features section scroll handling
-        document.addEventListener('DOMContentLoaded', function () {
-            const featuresGrid = document.querySelector('.features-grid');
-            const scrollDots = document.querySelectorAll('.scroll-dot');
-
-            if (featuresGrid && scrollDots.length) {
-                const updateActiveDot = () => {
-                    const scrollPercentage = (featuresGrid.scrollLeft / (featuresGrid.scrollWidth - featuresGrid.clientWidth)) * 100;
-                    scrollDots.forEach((dot, index) => {
-                        const isActive =
-                            (index === 0 && scrollPercentage < 33) ||
-                            (index === 1 && scrollPercentage >= 33 && scrollPercentage < 66) ||
-                            (index === 2 && scrollPercentage >= 66);
-                        dot.style.opacity = isActive ? '1' : '0.5';
-                    });
-                };
-
-                featuresGrid.addEventListener('scroll', updateActiveDot);
-
-                scrollDots.forEach((dot, index) => {
-                    dot.addEventListener('click', () => {
-                        const scrollPosition = (featuresGrid.scrollWidth - featuresGrid.clientWidth) * (index / 2);
-                        featuresGrid.scrollTo({
-                            left: scrollPosition,
-                            behavior: 'smooth'
-                        });
-                    });
-                });
-            }
-        });
-
-    </script>
+    <!-- Add Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
 </body>
-
 </html>
