@@ -20,12 +20,11 @@ body {
 .top-bar {
     background: #0099ff;
     color: white;
-    padding: 8px 0;
+    padding: 8px;
 }
 
 .top-bar-content {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
@@ -51,7 +50,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    padding: 15px 0;
+    padding: 8px 0; /* Reduced from 15px */
 }
 
 .nav-container {
@@ -61,16 +60,21 @@ body {
 }
 
 .logo img {
-    height: 60px;
+    height: 120px; /* Reduced from 100px */
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
 }
 
 .nav-links a {
     color: #333;
     text-decoration: none;
-    margin-left: 30px;
+    margin-left: 25px; /* Slightly reduced from 30px */
     font-weight: 500;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 18px; /* Slightly reduced from 14px */
 }
 
 .contact-btn {
@@ -682,55 +686,108 @@ body {
     padding: 15px 0;
 }
 
-/* Responsive Design */
+/* Mobile Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    .features-grid,
+    .treatments-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
-    .top-bar-content {
-        flex-direction: column;
-        text-align: center;
+    /* Mobile Menu */
+    .menu-toggle {
+        display: flex;
     }
-    
-    .contact-info span {
-        display: block;
-        margin: 5px 0;
-    }
-    
-    .nav-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
+
     .nav-links {
-        margin-top: 20px;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        padding: 80px 40px;
+        transition: 0.3s ease;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
     }
-    
+
+    .nav-links.active {
+        right: 0;
+    }
+
     .nav-links a {
-        display: block;
-        margin: 10px 0;
+        margin: 15px 0;
+        font-size: 18px;
     }
-    
-    .about-content,
-    .contact-content {
-        grid-template-columns: 1fr;
-    }
-    
+
+    /* Mobile Layout Adjustments */
     .hero-content {
-        margin: 0 20px;
         text-align: center;
+        margin: 0 20px;
     }
-    
+
     .hero h1 {
         font-size: 32px;
     }
-    
-    .info-grid {
+
+    .features-grid,
+    .treatments-grid,
+    .service-grid,
+    .speciality-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
-    
-    .footer-content {
+
+    .about-content {
         grid-template-columns: 1fr;
-    }
-    
-    .footer-section {
         text-align: center;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        height: 50px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .treatment-card,
+    .service-card {
+        margin: 10px;
     }
 }
